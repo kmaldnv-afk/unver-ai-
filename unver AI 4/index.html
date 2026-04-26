@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniPrep Pro | DTM Test Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg bg-1"></div>
+  <div class="bg bg-2"></div>
+  <div class="noise"></div>
+  <header class="topbar glass">
+    <div class="brand">
+      <div class="brand-mark">U</div>
+      <div><h1>UniPrep Pro</h1><p id="brandSub">Universitetga tayyorlov test platformasi</p></div>
+    </div>
+    <div class="lang-switcher dropdown-switcher">
+      <button id="langToggleBtn" class="lang-toggle-btn" type="button">🌐 <span id="currentLangLabel">O‘zbekcha</span> ▾</button>
+      <div id="langDropdown" class="lang-dropdown hidden">
+        <button class="lang-option active" data-lang="uz" type="button">🇺🇿 O‘zbekcha</button>
+        <button class="lang-option" data-lang="en" type="button">🇬🇧 English</button>
+        <button class="lang-option" data-lang="ru" type="button">🇷🇺 Русский</button>
+        <button class="lang-option" data-lang="de" type="button">🇩🇪 Deutsch</button>
+        <button class="lang-option" data-lang="zh" type="button">🇨🇳 中文</button>
+        <button class="lang-option" data-lang="tr" type="button">🇹🇷 Türkçe</button>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section id="loginScreen" class="screen active">
+      <div class="hero glass shadow-xl">
+        <div class="hero-left">
+          <span class="chip" id="pillText">Telegram admin monitoring bilan test tizimi</span>
+          <h2 id="loginTitle">Qiyin DTM darajasidagi testlar bilan o'zingizni sinab ko'ring</h2>
+          <p id="loginDesc">Har bir fan bo'yicha murakkab savollar, fan tanlash, vaqt nazorati, natijalarni admin botga yuborish va silliq zamonaviy interfeys.</p>
+          <div class="highlights">
+            <div class="mini-card glass-soft"><strong>14+</strong><span id="stat1">fanlar</span></div>
+            <div class="mini-card glass-soft"><strong>10</strong><span id="stat2">savol har bir fan uchun</span></div>
+            <div class="mini-card glass-soft"><strong>1 daq</strong><span id="stat3">har bir fan uchun vaqt</span></div>
+          </div>
+        </div>
+        <div class="hero-right glass-soft">
+          <div class="panel-title-wrap">
+            <h3 id="formTitle">Kirish</h3>
+            <p id="formSub">Faqat ism va familya kiriting. Barcha natijalar admin Telegram botiga yuboriladi.</p>
+          </div>
+          <label id="labelFirstName" for="firstName">Ism</label>
+          <input id="firstName" type="text" placeholder="Masalan: Ali" />
+          <label id="labelLastName" for="lastName">Familya</label>
+          <input id="lastName" type="text" placeholder="Masalan: Karimov" />
+          <button id="enterBtn" class="primary-btn">Davom etish</button>
+          <div class="notice"><div class="notice-dot"></div><p id="loginHint">Admin sozlamalari script.js ichida. Foydalanuvchi token yoki chat ID ko'rmaydi.</p></div>
+        </div>
+      </div>
+    </section>
+    <section id="subjectScreen" class="screen">
+      <div class="section-head">
+        <div><span class="chip" id="selectPill">2-bosqich</span><h2 id="subjectTitle">Fanlarni tanlang</h2><p id="subjectDesc">Bir yoki bir nechta fanni tanlang. Har bir fan uchun 10 tadan qiyin test beriladi.</p></div>
+        <div class="user-box glass-soft"><span id="welcomeText">Foydalanuvchi:</span><strong id="userNameDisplay">—</strong></div>
+      </div>
+      <div id="subjectGrid" class="subject-grid"></div>
+      <div class="info-grid">
+        <div class="glass-soft topics-box">
+          <div class="topics-head">
+            <div>
+              <h3 id="topicsTitle">5–11 sinf asosiy mavzular</h3>
+              <p id="topicsDesc">Tanlangan fan uchun sinf bo‘yicha asosiy mavzular ko‘rinadi.</p>
+            </div>
+            <div class="topics-controls">
+              <select id="gradeSelect"></select>
+            </div>
+          </div>
+          <div id="topicsList" class="topics-list"></div>
+        </div>
+        <div class="glass-soft materials-box"><h3 id="materialsTitle">Qisqa tayyorlov yo'nalishlari</h3><div id="materialsList" class="materials-list"></div></div>
+        <div class="glass-soft summary-box"><h3 id="testRuleTitle">Test qoidalari</h3><ul id="rulesList" class="rules-list"></ul></div>
+      </div>
+      <div class="bottom-actions"><button id="startTestBtn" class="primary-btn floating-hidden">Testni boshlash</button></div>
+    </section>
+    <section id="testScreen" class="screen">
+      <div class="test-shell glass shadow-xl">
+        <div class="test-top">
+          <div><span class="chip" id="testPill">3-bosqich</span><h2 id="testSubjectTitle">Test</h2><p id="testProgressText">Savol 1 / 10</p></div>
+          <div class="right-tools">
+            <div class="mini-info glass-soft"><span id="subjectCounterLabel">Fanlar</span><strong id="subjectCounter">1</strong></div>
+            <div class="timer-box glass-soft"><span id="timerLabel">Vaqt</span><strong id="timer">01:00</strong></div>
+          </div>
+        </div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <div class="question-card glass-soft">
+          <div class="question-topline"><span id="questionSubjectBadge" class="question-badge">Matematika</span><span class="difficulty-badge">DTM+</span></div>
+          <h3 id="questionText">Savol matni</h3>
+          <div id="answersBox" class="answers-box"></div>
+        </div>
+        <div class="bottom-actions spread"><button id="nextBtn" class="primary-btn">Keyingi savol</button><div class="test-end-actions"><button id="leaveTestBtn" class="secondary-btn">Chiqish</button><button id="finishBtn" class="secondary-btn">Yakunlash</button></div></div>
+      </div>
+    </section>
+    <section id="resultScreen" class="screen">
+      <div class="result-card glass shadow-xl">
+        <span class="chip" id="resultPill">Natija</span>
+        <h2 id="resultTitle">Test yakunlandi</h2>
+        <p id="resultDesc">Natija admin Telegram botiga yuborildi. Quyida umumiy ko'rsatkich berilgan.</p>
+        <div id="resultSummary" class="result-grid"></div>
+        <div class="result-actions"><button id="restartBtn" class="primary-btn">Qaytadan boshlash</button><button id="exitBtn" class="secondary-btn">Chiqish</button></div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
